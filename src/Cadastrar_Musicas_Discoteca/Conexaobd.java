@@ -33,7 +33,7 @@ public class Conexaobd {
 		Statement st;
 		try {
 			st = con.createStatement();
-			return(st.executeQuery("Select * from album, artista,genero,musica where(artista.id=album.artista_id) and (album.id=musica.album_id)and (musica.id=genero.id);"));
+			return(st.executeQuery("Select * from `album`, `artista`,`genero`,`musica` where(artista.id=album.artista_id) and (album.id=musica.album_id)and (musica.id=genero.id);"));
 		} catch (SQLException e) {
 			System.out.println("Problema na consulta à tabela genero!");
 		}
@@ -42,7 +42,7 @@ public class Conexaobd {
 	
 	//Método para inserir no banco uma Pessoa passada como parâmetro
 	public static int inserirGenero(Genero g) {
-		String insercao = "INSERT INTO `genero` (`nome`) VALUES ('"+g.getNome()+"');";
+		String insercao = "INSERT INTO genero (nomeGe) VALUES ('"+g.getNome()+"');";
 		Connection con = conectar();
 		Statement st;
 		try {
@@ -54,7 +54,7 @@ public class Conexaobd {
 		return(0);
 	}
 	public static int inserirArtista(Artista a) {
-		String insercao = "INSERT INTO artista(nome,genero_id ) VALUES ('"+a.getNome()+"','"+a.getId()+"');";
+		String insercao = "INSERT INTO artista(nomeAr,genero_id ) VALUES ('"+a.getNome()+"','"+a.getId()+"');";
 		Connection con = conectar();
 		Statement st;
 		try {
@@ -67,7 +67,7 @@ public class Conexaobd {
 	}
         
          public static int inserirAlbum(Album l) {
-		String insercao = "INSERT INTO album (nome, ano, artista_id ) VALUES ('"+l.getNome()+"','"+l.getAno()+"','"+l.getId()+"');";
+		String insercao = "INSERT INTO album (nomeAl, ano, artista_id ) VALUES ('"+l.getNome()+"','"+l.getAno()+"','"+l.getId()+"');";
 		Connection con = conectar();
 		Statement st;
 		try {

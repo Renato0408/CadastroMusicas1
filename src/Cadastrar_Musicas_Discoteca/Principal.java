@@ -17,7 +17,7 @@ public class Principal {
 		//==============================
 		//Exemplo de inserção de 1 Genero SGBD
 		//==============================
-		Genero r = new Genero ("Rock");
+	/*	Genero r = new Genero ("Rock");
 		if(Conexaobd.inserirGenero(r)!=0) {
 			System.out.println("Genero inserido sucesso no banco!");
 		} else {
@@ -110,15 +110,15 @@ public class Principal {
 		} else {
 			System.out.println("Erro na inserção!");
 		}
-		
+		*/
 		ResultSet res = Conexaobd.relatorio();
 		if(res!=null) {
 			try {
 				while(res.next()) {
-					System.out.println("genero: "+res.getString("nome"));
-//                                       System.out.println("artista: "+res.getString("nome"));
-//                                        System.out.println("album: "+res.getString("nome"));
-//                                        System.out.println("musica: "+res.getString("nome"));
+					System.out.println("genero: "+res.getString("nomeGe"));
+                                       System.out.println("artista: "+res.getString("nomeAr"));
+                                       System.out.println("album: "+res.getString("nomeAl"));
+                                       System.out.println("musica: "+res.getString("nome"));
 					System.out.println("==========");
 				}
 			} catch (SQLException e) {
